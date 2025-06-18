@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Letra do Hino</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f2f5;
+      padding: 2rem;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      margin-bottom: 1rem;
+      border: none;
+    }
+    pre {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      box-shadow: 0 0 6px #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="conteudo"></div>
+
+  <script>
+    const hinos = {
+      "foi-na-cruz": {
+        titulo: "Foi na Cruz – Jefferson & Suellen",
+        video: "https://www.youtube.com/embed/392zVjhxurA",
+        letra: `A cruz era o meu lugar  
+Os cravos eram em minhas mãos  
+O castigo estava sobre mim  
+Eu era culpado, Ele não!  
+
+Foi na cruz que seu sangue derramou por mim  
+Foi na cruz que se ouviu o brado: Está consumado`
+      },
+      "luz-divina": {
+        titulo: "Luz Divina",
+        video: "https://www.youtube.com/embed/[ID_AQUI]",
+        letra: `Oh, vem, divina luz, as trevas dissipar!  
+Oh, vem-me alumiar!  
+Amor celeste, vem, sobre mim transbordar!  
+Habita no meu lar, ó Salvador!`
+      },
+      "maranata": {
+        titulo: "Maranata – Avivah feat. Fernanda Madaloni",
+        video: "https://www.youtube.com/embed/iS6GXPbhCwU",
+        letra: `Tu és a minha luz  
+A minha salvação  
+Se estou contigo, não há o que temer  
+Maranata, ora vem Senhor Jesus!`
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (hinos[id]) {
+      const hino = hinos[id];
+      document.getElementById("conteudo").innerHTML = `
+        <h1>${hino.titulo}</h1>
+        <iframe src="${hino.video}" allowfullscreen></iframe>
+        <pre>${hino.letra}</pre>
+      `;
+    } else {
+      document.getElementById("conteudo").innerHTML = "<p>Hino não encontrado.</p>";
+    }
+  </script>
+</body>
+</html>
