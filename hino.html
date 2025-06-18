@@ -10,50 +10,73 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f2f5, #d9e2ec);
       margin: 0;
-      padding: 1rem;
-      color: #333;
+      padding: 1.5rem;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
 
     h1 {
       text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #0a3d62;
+      text-shadow: 1px 1px 4px rgba(10, 61, 98, 0.3);
     }
 
     iframe {
       width: 100%;
-      height: 315px;
+      max-width: 720px;
+      height: 360px;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+    iframe:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
     }
 
     pre {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
+      background: #fff;
+      max-width: 720px;
+      padding: 2rem;
+      border-radius: 15px;
       white-space: pre-wrap;
-      box-shadow: 0 0 6px #ccc;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      font-size: 1.25rem;
+      line-height: 1.8;
+      font-weight: 700; /* negrito aqui */
+      color: #222;
+      user-select: text;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       h1 {
-        font-size: 1.4rem;
-      }
-
-      pre {
-        font-size: 1.2rem;
-        padding: 1.2rem;
+        font-size: 1.6rem;
       }
 
       iframe {
-        height: 250px;
+        height: 280px;
+      }
+
+      pre {
+        font-size: 1.15rem;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      pre {
+        font-size: 1.05rem;
+        padding: 1rem;
       }
     }
   </style>
@@ -105,7 +128,7 @@ Maranata, ora vem Senhor Jesus!`
         <pre>${hino.letra}</pre>
       `;
     } else {
-      conteudo.innerHTML = "<p style='text-align:center;'>Hino não encontrado.</p>";
+      conteudo.innerHTML = "<p style='text-align:center; font-weight:bold; color:#cc0000;'>Hino não encontrado.</p>";
     }
   </script>
 </body>
