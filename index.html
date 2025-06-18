@@ -10,55 +10,70 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
-      padding: 1rem;
+      padding: 0;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
     }
 
     h1 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
       color: #222;
+      margin-bottom: 2rem;
+      text-align: center;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
 
     input[type="text"] {
-      display: block;
-      margin: 0 auto 1.5rem;
-      padding: 0.8rem;
       width: 100%;
       max-width: 500px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      padding: 1rem;
       font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
     }
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      width: 100%;
+      max-width: 600px;
     }
 
     li {
-      background: #fff;
-      margin-bottom: 10px;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
+      background: #ffffff;
+      margin-bottom: 1rem;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     li:hover {
-      transform: scale(1.01);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
     a {
       text-decoration: none;
-      color: #333;
-      font-weight: bold;
+      color: #222;
+      font-weight: 600;
+      font-size: 1.05rem;
       display: block;
-      word-wrap: break-word;
     }
 
     a:hover {
@@ -67,15 +82,16 @@
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.3rem;
-      }
-
-      li {
-        padding: 12px;
+        font-size: 1.6rem;
       }
 
       input[type="text"] {
         font-size: 0.95rem;
+        padding: 0.8rem;
+      }
+
+      a {
+        font-size: 1rem;
       }
     }
   </style>
@@ -91,8 +107,8 @@
     const hinos = [
       { titulo: "Foi na Cruz – Jefferson & Suellen", id: "foi-na-cruz" },
       { titulo: "Luz Divina", id: "luz-divina" },
-      { titulo: "Maranata – Avivah feat. Fernanda Madaloni", id: "maranata" }
-      // Pode colocar mais louvores aqui!
+      { titulo: "Maranata – Avivah feat. Fernanda Madaloni", id: "maranata" },
+      // Adicione mais louvores aqui 👇
     ];
 
     const ul = document.getElementById("lista-hinos");
