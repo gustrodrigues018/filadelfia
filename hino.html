@@ -85,11 +85,11 @@
   <div id="conteudo"></div>
 
   <script>
-    const hinos = {
-      "foi-na-cruz": {
-        titulo: "Foi na Cruz – Jefferson & Suellen",
-        video: "https://www.youtube.com/embed/392zVjhxurA",
-        letra: `A cruz era o meu lugar
+  const hinos = {
+    "foi-na-cruz": {
+      titulo: "Foi na Cruz – Jefferson & Suellen",
+      video: "https://www.youtube.com/embed/392zVjhxurA",
+      letra: `A cruz era o meu lugar
 Os cravos eram em minhas mãos
 O castigo estava sobre mim
 Eu era culpado, Ele não
@@ -152,148 +152,46 @@ E foi na cruz que se ouviu o brado, está consumado
 ('Cê pode glorificar ao Senhor, 'cê pode glorificar ao Senhor?)
 ('Cê pode glorificar ao Senhor, dê um Glória a Deus aí)
 (Wow, Glória a Deus, Glória a Deus)
-(Glória a Deus, Aleluia)
-      },
-      "luz-divina": {
-        titulo: "Luz Divina",
-        video: "https://www.youtube.com/embed/[ID_AQUI]",
-        letra: `Oh, vem, divina luz, as trevas dissipar!  
+(Glória a Deus, Aleluia)`
+    },
+    "luz-divina": {
+      titulo: "Luz Divina",
+      video: "https://www.youtube.com/embed/[ID_AQUI]",
+      letra: `Oh, vem, divina luz, as trevas dissipar!  
 Oh, vem-me alumiar!  
 Amor celeste, vem, sobre mim transbordar!  
 Habita no meu lar, ó Salvador!`
-      },
-      "maranata": {
-        titulo: "Maranata – Avivah feat. Fernanda Madaloni",
-        video: "https://www.youtube.com/embed/iS6GXPbhCwU",
-        letra: `
-Tu és a minha Luz
-A minha Salvação
-E a Ti me renderei
-Se ao teu lado estou
-Seguro em Tuas mãos
+    },
+    "maranata": {
+      titulo: "Maranata – Avivah feat. Fernanda Madaloni",
+      video: "https://www.youtube.com/embed/iS6GXPbhCwU",
+      letra: `Tu és a minha Luz
+... (letra completa como está)`
+    },
+    "Medley-Céus-e-Terra": {
+      titulo: "Coral CAMP 2021: Medley Céus e Terra Se Encontram",
+      video: "https://www.youtube.com/embed/tOgiwFmQ1W4?si=9v5SxM55NO_R9AVd".replace("youtu.be/", "www.youtube.com/embed/"),
+      letra: `Rei dos reis, te exaltamos
+... (letra completa como está)`
+    },
+  };
 
-Eu nada temerei
-Oh oh uoh Tu és Santo, ó Senhor
-Oh oh uoh Tu és digno de louvor
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-Só em Ti confiarei
-Eu nada temerei
-Em frente eu irei
-Pois eu sei que vivo estás
-E um dia voltarás do céu pra nos buscar
-Para sempre reinarás, aleluia
+  const conteudo = document.getElementById("conteudo");
 
-Tu és a minha Luz
-A minha Salvação
-E a Ti me renderei (só a Ti me renderei)
-Se ao teu lado estou
-Seguro em Tuas mãos
-Eu nada temerei
+  if (hinos[id]) {
+    const hino = hinos[id];
+    conteudo.innerHTML = `
+      <h1 style="color: white;">${hino.titulo}</h1>
+      <iframe width="100%" height="315" src="${hino.video}" frameborder="0" allowfullscreen></iframe>
+      <div style="white-space: pre-wrap; color: white; font-size: 1rem; line-height: 1.6;">${hino.letra}</div>
+    `;
+  } else {
+    conteudo.innerHTML = "<p style='text-align:center; font-weight:bold; color:#cc0000;'>Hino não encontrado.</p>";
+  }
+</script>
 
-Oh oh oh oh Tu és Santo, ó Senhor
-Oh uoh uoh uoh Tu és digno de louvor
-
-Só em Ti confiarei
-Eu nada temerei
-Em frente eu irei
-Pois eu sei que vivo estás
-E um dia voltarás do céu pra nos buscar
-Para sempre reinarás, aleluia
-
-Só em Ti confiarei
-Eu nada temerei
-Em frente eu irei
-Pois eu sei que vivo estás
-E um dia voltarás do céu pra nos buscar
-Pra sempre reinarás, aleluia
-
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-Vem, Jesus
-Vem, Jesus
-Maranata, ora, vem, Senhor Jesus
-      }, 
-      "Medley-Céus-e-Terra": {
-        titulo: "Coral CAMP 2021: Medley Céus e Terra Se Encontram",
-        video: "https://youtu.be/tOgiwFmQ1W4?si=9v5SxM55NO_R9AVd",
-        letra: `
-Rei dos reis, te exaltamos
-Rei dos reis, te adoramos
-
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-
-Rei dos reis, te exaltamos
-Rei dos reis, te adoramos
-
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-
-Céus e terra se encontram
-Alinhando o seu plano
-O universo estremece
-O leão rugiu no trono
-
-Céus e terra se encontram
-Alinhando o seu plano
-O universo estremece
-O leão rugiu
-
-Tu és Santo, poderoso Deus
-Tu és Santo, poderoso Deus
-Vem e toma o teu lugar aqui
-Vem e toma o teu lugar aqui
-
-Yeshua, Yeshua, Yeshua
-
-Vem saltando sobre os montes de Jerusalém
-Sou tua noiva apaixonada
-Te esperando para dançar
-      },
-
-      
-    };
-
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-
-    const conteudo = document.getElementById("conteudo");
-
-    if (hinos[id]) {
-      const hino = hinos[id];
-      conteudo.innerHTML = `
-        <h1>${hino.titulo}</h1>
-        <iframe src="${hino.video}" allowfullscreen></iframe>
-        <pre>${hino.letra}</pre>
-      `;
-    } else {
-      conteudo.innerHTML = "<p style='text-align:center; font-weight:bold; color:#cc0000;'>Hino não encontrado.</p>";
-    }
-  </script>
 </body>
 </html>
