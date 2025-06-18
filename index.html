@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grupo de Jovens Filadélfia</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Grupo Filadélfia – Hinos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 1px 1px 6px #ccc;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #007bff;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Grupo de Jovens Filadélfia</h1>
-    <p>"Sede fraternalmente amigos, misericordiosos, humildes." (1 Pedro 3:8)</p>
-    <input type="text" id="busca" placeholder="Buscar hino...">
-  </header>
+  <h1>🎶 Grupo Filadélfia – Louvores</h1>
+  <ul id="lista-hinos"></ul>
 
-  <main id="hinos-container">
-    <!-- Os hinos vão aparecer aqui via JavaScript -->
-  </main>
+  <script>
+    const hinos = [
+      { titulo: "Foi na Cruz – Jefferson & Suellen", id: "foi-na-cruz" },
+      { titulo: "Luz Divina", id: "luz-divina" },
+      { titulo: "Maranata – Avivah feat. Fernanda Madaloni", id: "maranata" }
+      // Adicione os outros...
+    ];
 
-  <footer>
-    <p>&copy; 2025 - Jovens Filadélfia</p>
-  </footer>
-
-  <script src="script.js"></script>
+    const ul = document.getElementById("lista-hinos");
+    hinos.forEach(hino => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="hino.html?id=${hino.id}">${hino.titulo}</a>`;
+      ul.appendChild(li);
+    });
+  </script>
 </body>
 </html>
