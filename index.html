@@ -2,44 +2,81 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grupo Filadélfia – Hinos</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f9f9f9;
-      padding: 2rem;
+    * {
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 1rem;
+    }
+
     h1 {
       text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: #222;
     }
+
     input[type="text"] {
       display: block;
-      margin: 1rem auto 2rem;
-      padding: 10px;
-      width: 80%;
+      margin: 0 auto 1.5rem;
+      padding: 0.8rem;
+      width: 100%;
       max-width: 500px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 1rem;
     }
+
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
+
     li {
       background: #fff;
       margin-bottom: 10px;
-      padding: 10px;
+      padding: 15px;
       border-radius: 8px;
-      box-shadow: 1px 1px 6px #ccc;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
     }
+
+    li:hover {
+      transform: scale(1.01);
+    }
+
     a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      display: block;
+      word-wrap: break-word;
     }
+
     a:hover {
       color: #007bff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      li {
+        padding: 12px;
+      }
+
+      input[type="text"] {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -54,10 +91,8 @@
     const hinos = [
       { titulo: "Foi na Cruz – Jefferson & Suellen", id: "foi-na-cruz" },
       { titulo: "Luz Divina", id: "luz-divina" },
-      { titulo: "Maranata – Avivah feat. Fernanda Madaloni", id: "maranata" },
-      { titulo: "Jeová Jireh – Aline Barros", id: "jeova-jireh" },
-      { titulo: "Caminho no Deserto – Márcio Couth", id: "caminho-deserto" }
-      // Pode adicionar mais aqui!
+      { titulo: "Maranata – Avivah feat. Fernanda Madaloni", id: "maranata" }
+      // Pode colocar mais louvores aqui!
     ];
 
     const ul = document.getElementById("lista-hinos");
@@ -78,7 +113,6 @@
       renderizarLista(input.value);
     });
 
-    // Render inicial
     renderizarLista();
   </script>
 </body>
